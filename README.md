@@ -1,1 +1,1 @@
-Amiibopedia
+# Amiibopedia
