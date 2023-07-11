@@ -13,7 +13,9 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete" Version="22.1.38" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms.BehaviorsPack" Version="3.0.0" />
   </ItemGroup>
 </Project>

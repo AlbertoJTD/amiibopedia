@@ -22,8 +22,8 @@ namespace Amiibopedia
 		{
 			base.OnAppearing();
 			ViewModel = new MainPageViewModel();
-			this.BindingContext = ViewModel;
 			await ViewModel.LoadCharacters();
+			this.BindingContext = ViewModel;
 		}
 	}
 }
