@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
              xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
-             x:Class="Amiibopedia.MainPage">
+             x:Class="Amiibopedia.MainPage"
+             Title="Amiibopedia">
 
     <StackLayout>
         <!--<SearchBar Placeholder="Search your Amiibo..."
@@ -25,7 +26,7 @@
                   RowHeight="250">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <ViewCell Appearing="ViewCell_Appearing">
                         <Frame CornerRadius="5"
                                Margin="5"
                                BackgroundColor="White">
