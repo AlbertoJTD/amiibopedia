@@ -12,9 +12,19 @@ namespace Amiibopedia.ViewModels
 {
 	public class MainPageViewModel : BaseViewModel
 	{
-        public ObservableCollection<Character> Characters { get; set; }
-        public ObservableCollection<Amiibo> Amiibos { get; set; }
-        public ICommand SearchCommand { get; set; }
+		private ObservableCollection<Amiibo> amiibos;
+
+		public ObservableCollection<Character> Characters { get; set; }
+		public ObservableCollection<Amiibo> Amiibos
+		{
+			get => amiibos;
+			set
+			{
+				amiibos = value;
+				OnPropertyChanged();
+			}
+		}
+		public ICommand SearchCommand { get; set; }
 
         public MainPageViewModel()
         {

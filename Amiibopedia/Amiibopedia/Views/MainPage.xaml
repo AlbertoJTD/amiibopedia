@@ -21,8 +21,28 @@
             </autocomplete:SfAutoComplete.Behaviors>
         </autocomplete:SfAutoComplete>
 
-        <ListView>
-            <ListView.ItemsSource>
+        <ListView ItemsSource="{Binding Amiibos}"
+                  RowHeight="250">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame CornerRadius="5"
+                               Margin="5"
+                               BackgroundColor="White">
+                            <StackLayout>
+                                <Image Source="{Binding image}"
+                                   HeightRequest="100" />
+                                <Label Text="{Binding name}"
+                                   FontSize="Large" />
+                                <Label Text="{Binding amiiboSeries, StringFormat='Amiibo Series: {0}'}" />
+                                <Label Text="{Binding gameSeries, StringFormat='Game Series: {0}'}" />
+                                <Label Text="{Binding type, StringFormat='Type: {0}'}"/>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Mario</x:String>
                     <x:String>Mario2</x:String>
@@ -31,7 +51,7 @@
                     <x:String>Mario5</x:String>
                     <x:String>Mario6</x:String>
                 </x:Array>
-            </ListView.ItemsSource>
+            </ListView.ItemsSource>-->
         </ListView>
     </StackLayout>
 
