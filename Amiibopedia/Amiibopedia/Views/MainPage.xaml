@@ -5,45 +5,45 @@
              xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
              x:Class="Amiibopedia.MainPage"
              Title="Amiibopedia">
-
-    <StackLayout>
-        <!--<SearchBar Placeholder="Search your Amiibo..."
+    <Grid>
+        <StackLayout>
+            <!--<SearchBar Placeholder="Search your Amiibo..."
                    x:Name="search"
                    SearchCommand="{Binding SearchCommand}"
                    SearchCommandParameter="{Binding Text, Source={x:Reference search}}"/>-->
-        <autocomplete:SfAutoComplete HeightRequest="40"
+            <autocomplete:SfAutoComplete HeightRequest="40"
                                      DataSource="{Binding Characters}"
                                      DisplayMemberPath="name"
                                      Watermark="Search your Amiibo...">
-            <autocomplete:SfAutoComplete.Behaviors>
-                <behaviorsPack:EventToCommandBehavior EventName="SelectionChanged"
+                <autocomplete:SfAutoComplete.Behaviors>
+                    <behaviorsPack:EventToCommandBehavior EventName="SelectionChanged"
                                                       Command="{Binding SearchCommand}"
                                                       EventArgsPropertyPath="Value"/>
-            </autocomplete:SfAutoComplete.Behaviors>
-        </autocomplete:SfAutoComplete>
+                </autocomplete:SfAutoComplete.Behaviors>
+            </autocomplete:SfAutoComplete>
 
-        <ListView ItemsSource="{Binding Amiibos}"
+            <ListView ItemsSource="{Binding Amiibos}"
                   RowHeight="250">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell Appearing="ViewCell_Appearing">
-                        <Frame CornerRadius="5"
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Appearing="ViewCell_Appearing">
+                            <Frame CornerRadius="5"
                                Margin="5"
                                BackgroundColor="White">
-                            <StackLayout>
-                                <Image Source="{Binding image}"
+                                <StackLayout>
+                                    <Image Source="{Binding image}"
                                    HeightRequest="100" />
-                                <Label Text="{Binding name}"
+                                    <Label Text="{Binding name}"
                                    FontSize="Large" />
-                                <Label Text="{Binding amiiboSeries, StringFormat='Amiibo Series: {0}'}" />
-                                <Label Text="{Binding gameSeries, StringFormat='Game Series: {0}'}" />
-                                <Label Text="{Binding type, StringFormat='Type: {0}'}"/>
-                            </StackLayout>
-                        </Frame>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            <!--<ListView.ItemsSource>
+                                    <Label Text="{Binding amiiboSeries, StringFormat='Amiibo Series: {0}'}" />
+                                    <Label Text="{Binding gameSeries, StringFormat='Game Series: {0}'}" />
+                                    <Label Text="{Binding type, StringFormat='Type: {0}'}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <!--<ListView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Mario</x:String>
                     <x:String>Mario2</x:String>
@@ -53,7 +53,15 @@
                     <x:String>Mario6</x:String>
                 </x:Array>
             </ListView.ItemsSource>-->
-        </ListView>
-    </StackLayout>
+            </ListView>
+        </StackLayout>
+
+        <Grid Opacity=".8"
+              BackgroundColor="Black"
+               IsVisible="{Binding IsBusy}">
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="Center" />
+        </Grid>
+    </Grid>
 
 </ContentPage>
