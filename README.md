@@ -1,4 +1,4 @@
-# Amiibopedia
+# Amiibopedia 🔎
 `iOS` `Android`
 
 Search your [Amiibos](https://en.wikipedia.org/wiki/Amiibo) from your favorites games 🎮
